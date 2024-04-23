@@ -1,0 +1,270 @@
+Bonus -	Ratings
+
+(additional runs subject to change due to randomness. However, random guess mae has 
+regularly been at appr 0.893)
+
+Twenty Percent
+
+Run 1
+
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.073		Given Hyperparameters
+2			apprx 0.832	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.833		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.837		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.923		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.021		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			nan			5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.834		5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.875		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12			apprx 0.809	1st	5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14			apprx 0.817	2nd	5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16				nan		5100 * eta, 100 * lambda, 5 * n_iterations
+
+Run 2 (with additions derived from Run 1)
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.073		Given Hyperparameters
+2			apprx 0.844	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.850		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.850		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.856		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 1.968		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			nan			5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.866		5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.929		6000 * eta, 100 * lambda, 5 * n_iterations 
+11			apprx 0.803	1st	5500 * eta, 100 * lambda, 5 * n_iterations 
+12			apprx 0.939		5400 * eta, 100 * lambda, 5 * n_iterations
+13			apprx 0.918		5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16			apprx 0.884		5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.830	2nd	1000 * eta, 10 * lambda, 6 * n_iterations
+
+Run 3 
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.083		Given Hyperparameters
+2			apprx 0.8282	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.827719	2nd	1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.847		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.886		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 1.968		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			nan			5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.866		5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.929		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14			apprx 0.855		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16			apprx 0.805	1st	5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.862		1000 * eta, 10 * lambda, 6 * n_iterations
+
+
+Run 4 (with additions derived from Run 3) 
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.073		Given Hyperparameters
+2			apprx 0.8273		1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.940		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.822	3rd	1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.851		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.097		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			nan			5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.837		5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.870		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13			apprx 0.845		5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15			apprx 0.808	1st	5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16				nan		5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18			apprx 0.812	2nd	5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.844		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.823		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.832		1000 * eta, 100 * lambda, 6 * n_iterations 
+22			nan			5000 * eta, 100 * lambda, 6 * n_iterations 
+	
+
+Run 5  
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.058		Given Hyperparameters
+2			apprx 0.821	2nd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.829		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.837		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.859		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.081		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			apprx 0.885		5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.805	1st	5000 * eta, 100 * lambda, 5 * n_iterations
+10				nan		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14			apprx 0.836		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16				nan		5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.823	3rd	1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.838		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.849		1000 * eta, 100 * lambda, 6 * n_iterations 
+22			apprx 0.854		5000 * eta, 100 * lambda, 3 * n_iterations 
+
+
+Run 6  
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.061		Given Hyperparameters
+2			apprx 0.829	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.826	2nd	1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.837		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.844		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.366		1000 * eta, 1000 * lambda, 3 * n_iterations
+8				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.806	1st	5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.841		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12			apprx 0.870		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14			apprx 0.813		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16			apprx 0.836		5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.877		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.825		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.899		1000 * eta, 100 * lambda, 6 * n_iterations 
+22			apprx 0.932		5000 * eta, 100 * lambda, 3 * n_iterations 
+	
+	
+Run 7 
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.067		Given Hyperparameters
+2			apprx 0.855		1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.834		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.824		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.867		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.059		1000 * eta, 1000 * lambda, 3 * n_iterations
+8				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.851		5000 * eta, 100 * lambda, 5 * n_iterations
+10				nan		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16				nan		5100 * eta, 100 * lambda, 5 * n_iterations
+17			apprx 0.890		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.824		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.936		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.866		1000 * eta, 100 * lambda, 6 * n_iterations 
+22			apprx 0.944		5000 * eta, 100 * lambda, 3 * n_iterations 
+
+Run 8  
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.067		Given Hyperparameters
+2			apprx 0.827	2nd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.822	1st	1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.848		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.865		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.142		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			apprx 0.829	3rd	5000 * eta, 100 * lambda, 3 * n_iterations 
+9				nan		5000 * eta, 100 * lambda, 5 * n_iterations
+10				nan		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16			apprx 0.834		5100 * eta, 100 * lambda, 5 * n_iterations
+17			apprx 0.889		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.844		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.830		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.845		1000 * eta, 100 * lambda, 6 * n_iterations 
+22				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+
+
+Run 9  
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.078		Given Hyperparameters
+2			apprx 0.826	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.827		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.822	2nd		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.868		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 2.214		1000 * eta, 1000 * lambda, 3 * n_iterations
+8				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.835		5000 * eta, 100 * lambda, 5 * n_iterations
+10			apprx 0.844		6000 * eta, 100 * lambda, 5 * n_iterations 
+11			apprx 0.819	1st	5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13				nan		5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16			apprx 0.867		5100 * eta, 100 * lambda, 5 * n_iterations
+17			apprx 0.838		5400 * eta, 100 * lambda, 6 * n_iterations
+18			apprx 0.834		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.846		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.892		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.901		1000 * eta, 100 * lambda, 6 * n_iterations 
+22				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+
+
+
+Run 10  
+Function Call		Final MAE	Best	Hyperparamaters
+
+1			apprx 1.065		Given Hyperparameters
+2			apprx 0.847	3rd	1000 * eta, 10 * lambda, n_iterations
+3			apprx 0.947		1000 * eta, 10 * lambda, 2 * n_iterations
+4			apprx 0.828	2nd		1000 * eta, 10 * lambda, 3 * n_iterations
+5				nan		10000 * eta, 10 * lambda, 3 * n_iterations
+6			apprx 0.841		1000 * eta, 100 * lambda, 3 * n_iterations 
+7			apprx 1.893		1000 * eta, 1000 * lambda, 3 * n_iterations
+8			apprx 0.846		5000 * eta, 100 * lambda, 3 * n_iterations 
+9			apprx 0.861		5000 * eta, 100 * lambda, 5 * n_iterations
+10				nan		6000 * eta, 100 * lambda, 5 * n_iterations 
+11				nan		5500 * eta, 100 * lambda, 5 * n_iterations 
+12				nan		5400 * eta, 100 * lambda, 5 * n_iterations
+13			apprx 0.808 	1st	5300 * eta, 100 * lambda, 5 * n_iterations
+14				nan		5100 * eta, 10 * lambda, 5 * n_iterations
+15				nan		5310 * eta, 1/10 * lambda, 5 * n_iterations 
+16				nan		5100 * eta, 100 * lambda, 5 * n_iterations
+17				nan		5400 * eta, 100 * lambda, 6 * n_iterations
+18				nan		5100 * eta, 100 * lambda, 6 * n_iterations
+19			apprx 0.834		1000 * eta, 10 * lambda, 6 * n_iterations
+20			apprx 0.833		1000 * eta, 10 * lambda, 6 * n_iterations
+21			apprx 0.817		1000 * eta, 100 * lambda, 6 * n_iterations 
+22				nan		5000 * eta, 100 * lambda, 3 * n_iterations 
+
+
+For thirty percent, continue on with derivations and originals that don't have derivations.
+
+
+
+
+

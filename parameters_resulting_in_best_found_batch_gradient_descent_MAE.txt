@@ -1,0 +1,44 @@
+Best Found MAE
+
+	is typically under 0.80.
+
+	resulted from 
+		doubling n_iterations, 
+		multiplying eta by 10, 
+		and multiplying lambda by 10.
+
+Parameters Analysis
+
+n_iterations:
+	Doubling the number of iterations decreases the MAE by about 0.002.
+
+eta:
+	With n_iterations doubled, multiplying the eta (learning rate) by 10 decreases 
+	the MAE by around 0.16.  
+
+lambda:
+	With n_iterations doubled and the eta multiplied by 10-
+
+	Multiplying the lambda (regularization parameter), decreases
+	the MAE by around 0.00002.
+
+	Whereas,
+	dividing the lambda (regularization parameter), increase
+	the MAE by around 0.000002, which is insignificant.
+
+From these results:
+
+	It appears that the modifying the eta has the most 
+	impact on the MAE. However, having too high an eta
+	can lead to the point of convergence being missed.
+
+	Modifying n_iterations has the second most impact on the MAE.
+	However, there is a noticeable tradeoff between decreased MAE
+	and increased running time. 
+
+	Dividing the lambda by 10 was the only tuned parameter
+	that resulted in an increase to the MAE. It makes logical sense
+	that dividing the eta by 10 would also increase the MAE. 
+	In any case, without a set number of iterations, dividing 
+	the eta by 10 would result in a higher running time by requiring 
+	more gradient descent steps to be performed to get to convergance.

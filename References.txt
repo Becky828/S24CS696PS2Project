@@ -1,0 +1,115 @@
+//GitHub Copilot Disclaimer
+//
+//Please be advised:
+//
+//https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
+//"Your personal settings for GitHub Copilot include an option to either allow or block code completion suggestions that match publicly available code. 
+// If you choose to block suggestions matching public code, GitHub Copilot checks code completion suggestions with their surrounding code of about 150 characters 
+// against public code on GitHub. If there is a match, or a near match, the suggestion is not shown to you."
+//
+//My public settings for GitHub Copilot are set to block suggestions matching public code. That has been my setting since I started using GitHub Copilot.
+//That will continue to be my setting for GitHub Copilot at least while I finish grad school and any future academics.
+//I have GitHub Copilot enabled in Visual Studio 2022. I have been using GitHub Copilot since Fall 2023. 
+//GitHub Copilot helps me with comments, and writing redundant code or similar code to what I have written before.
+//I use the occasional suggestion from Github Copilot in the very rare times that it makes sense with that I am writing.
+//I quite often edit the suggestions from GitHub Copilot that I do not outright ignore.
+//For me, GitHub Copilot is like using the "home" key on my keyboard. It is a tool to reduce the grind a bit and give my irritable wrists a break. It is not a brain break"
+//
+//I forgot to include this infomation in my ps1 p5 reference list. I thought that it was one of the carry over references 
+//for default cmake project, but just learned today that it wasn't. I apologize for that.
+//
+// I am using Github Copilot as a basic study aid. I am not using it to write my code for me. I am using Github Copilot within the guidelines.
+// of the academic integrity policy San Diego State University. Hence, grading for ps1 p5, ps2 p2, and any future problems is clearly
+// an evaluation of my understanding of the material and my ability to write code.
+//
+
+//https://stackoverflow.com/questions/63925255/googletest-compile-with-mt-staticrelease-errors
+//https://github.com/google/googletest
+//https://sentry.io/answers/revert-a-git-repository-to-a-previous-commit/
+//https://github.com/cpp-for-yourself/supplementary-materials/blob/main/lectures/googletest.md
+//https://www.w3schools.com/cpp/cpp_for_loop.asp
+//https://www.geeksforgeeks.org/cpp-multidimensional-array/
+//https://www.geeksforgeeks.org/iterators-c-stl/
+//https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.tutorialspoint.com/cplusplus-program-for-derivative-of-a-polynomial&ved=2ahUKEwj-rNX5vIWFAxWXJkQIHc3MD7UQFnoECD8QAQ&usg=AOvVaw2pol_G3Qp8LY415shox0CF
+//https://math.stackexchange.com/questions/3062135/taking-a-derivative-of-a-magnitude-of-a-vector
+//https://youtube.com/watch?v=E9Q_Lc0g1xE
+//https://www.geeksforgeeks.org/program-derivative-polynomial/
+//https://mathworld.wolfram.com/VectorNorm.html
+//https://math.stackexchange.com/questions/296697/differentiation-of-vector-norms
+//https://math.stackexchange.com/questions/291318/derivative-of-the-2-norm-of-a-multivariate-function
+//https://stats.stackexchange.com/questions/181620/what-is-the-meaning-of-super-script-2-subscript-2-within-the-context-of-norms
+//https://proofwiki.org/wiki/Derivative_of_Absolute_Value_Function
+//https://cplusplus.com/reference/cmath/
+//https://www.w3schools.com/cpp/cpp_math.asp
+//https://towardsdatascience.com/intuitions-on-l1-and-l2-regularisation-235f2db4c261
+//https://medium.com/@dk13093/lasso-and-ridge-regularization-7b7b847bce34
+//https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization
+//https://math.stackexchange.com/questions/1652661/gradient-descent-l2-norm-regularization
+//https://towardsdatascience.com/create-a-gradient-descent-algorithm-with-regularization-from-scratch-in-python-571cb1b46642
+//https://medium.com/swlh/regularization-and-gradient-descent-cheat-sheet-d1be74a4ee53
+//https://www.analyticsvidhya.com/blog/2022/06/understanding-loss-function-in-deep-learning/#:~:text=Cost%20function%20and%20Loss%20function,interchangeably%20but%20they%20are%20different.&text=Measures%20the%20error%20between%20predicted,optimize%20the%20model%20during%20training.
+//https://www.tutorialspoint.com/cplusplus-program-to-find-transpose-of-a-matrix
+//https://www.geeksforgeeks.org/map-find-function-in-c-stl/
+//https://cplusplus.com/forum/beginner/134157/
+//https://www.geeksforgeeks.org/how-to-access-elements-in-set-by-index-in-cpp/
+//https://www.geeksforgeeks.org/program-for-scalar-multiplication-of-a-matrix/
+//https://timroughgarden.org/s16/l/l6.pdf
+//https://stackoverflow.com/questions/49444856/transpose-of-a-2d-matrix-using-vectors-in-c
+//https://www.geeksforgeeks.org/gradient-descent-in-linear-regression/
+//https://github.com/Pauloguilhermepp/GradientDescent/blob/main/src/GradientDescent/VanillaGradientDescent/VanillaGradientDescent.cpp
+//https://stackoverflow.com/questions/8848575/fastest-way-to-reset-every-value-of-stdvectorint-to-0
+//https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote07.html
+//https://towardsdatascience.com/hyper-parameter-tuning-techniques-in-deep-learning-4dad592c63c8
+//https://datascience.stackexchange.com/questions/33172/using-mean-squared-error-in-gradient-descent
+//https://medium.com/swlh/regularization-and-gradient-descent-cheat-sheet-d1be74a4ee53
+//https://towardsdatascience.com/https-medium-com-dashingaditya-rakhecha-understanding-learning-rate-dd5da26bb6de#:~:text=In%20order%20for%20Gradient%20Descent,will%20skip%20the%20optimal%20solution.
+//https://github.com/christianversloot/machine-learning-articles/blob/main/finding-optimal-learning-rates-with-the-learning-rate-range-test.md
+//https://cplusplus.com/reference/cstdlib/rand/
+//https://www.reddit.com/r/learnmachinelearning/comments/155idlv/stochastic_gradient_descent_rounds_iterations/
+//https://realpython.com/gradient-descent-algorithm-python/
+//https://www.geeksforgeeks.org/vector-erase-and-clear-in-cpp/
+//https://medium.com/@thedatabeast/important-points-about-gradient-descent-7166773a9bb9
+//https://www.reddit.com/r/datascience/comments/tgualj/is_there_any_solid_scientific_way_of_choosing/
+//https://www.programiz.com/cpp-programming/examples/sum-natural-number
+//https://stackoverflow.com/questions/5755942/how-do-you-auto-format-code-in-visual-studio
+//https://stats.stackexchange.com/questions/50068/how-to-compute-the-partial-derivative-of-the-cost-function-of-mean-regularized-m
+//https://grouplens.org/datasets/rating-disposition-2023/
+//https://cplusplus.com/reference/set/set/value_comp/
+//https://stackoverflow.com/questions/1342045/how-do-i-find-the-largest-int-in-a-stdsetint
+//https://medium.com/nerd-for-tech/linear-regression-from-scratch-pt3-stochastic-gradient-descent-7def4378f729
+//https://www.javatpoint.com/post/cpp-map-at-function
+//https://www.geeksforgeeks.org/check-key-present-cpp-map-unordered_map/
+//https://stackoverflow.com/questions/15425442/retrieve-random-key-element-for-stdmap-in-c#:~:text=std%3A%3Amap%20iterators%20are,m%3B%20auto%20it%20%3D%20m.
+//https://medium.com/@sahilcarterr/mathematics-behind-simple-linear-regression-using-gradient-descent-a09595bf701d
+//https://stats.stackexchange.com/questions/74518/in-stochastic-gradient-descent-is-there-only-one-update-to-theta-for-each-it
+//https://codeforces.com/blog/entry/61587
+//https://www.geeksforgeeks.org/stdmt19937-class-in-cpp/
+//https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a
+//https://stackoverflow.com/questions/7488155/can-i-set-a-breakpoint-when-variable-is-getting-a-specific-value-in-net
+//https://www.geeksforgeeks.org/convert-string-to-int-in-cpp/
+//https://www.kaggle.com/datasets/syedjaferk/book-crossing-dataset?resource=download
+//https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a
+//https://stackoverflow.com/questions/10732074/stl-map-allows-duplicate-pairs
+//https://www.w3schools.com/cpp/cpp_exceptions.asp
+//https://www.geeksforgeeks.org/measure-execution-time-function-cpp/
+//https://stackoverflow.com/questions/16393583/how-to-read-same-file-twice-in-a-row
+//https://stackoverflow.com/questions/8848575/fastest-way-to-reset-every-value-of-stdvectorint-to-0
+//https://www.javatpoint.com/cpp-set-clear-function#:~:text=C%2B%2B%20set%20clear()%20function%20is%20used%20to%20remove%20all,converts%20its%20size%20to%200.
+//https://www.google.com/search?q=visual+studio+uncomment+shortcut&rlz=1C1VDKB_enUS979US979&oq=visual+community+uncommen&gs_lcrp=EgZjaHJvbWUqCAgBEAAYFhgeMgYIABBFGDkyCAgBEAAYFhgeMggIAhAAGBYYHjIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yCAgHEAAYFhgeMggICBAAGBYYHjINCAkQABiGAxiABBiKBdIBCTEzMzkyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
+//https://code.visualstudio.com/docs/editor/debugging
+//https://code.visualstudio.com/docs/editor/debugging
+//https://code.visualstudio.com/docs/cpp/config-msvc#_prerequisites
+//https://stackoverflow.com/questions/3702115/creating-a-directory-in-cmake
+//https://stackoverflow.com/questions/26281979/how-do-you-loop-through-a-stdmaps
+//https://stackoverflow.com/questions/10124679/what-happens-if-i-read-a-maps-value-where-the-key-does-not-exist
+//https://www.tutorialspoint.com/cpp_standard_library/cpp_map_at.htm
+//https://stackoverflow.com/questions/561997/determining-exception-type-after-the-exception-is-caught
+//https://learn.microsoft.com/en-us/cpp/cpp/errors-and-exception-handling-modern-cpp?view=msvc-170
+//https://www.geeksforgeeks.org/how-to-skip-over-an-element-in-map/
+//https://study.com/academy/lesson/what-is-a-finite-series.html#:~:text=The%20formula%20of%20a%20finite%20series%20is,written%20after%20the%20summation%20symbol.
+//https://en.wikipedia.org/wiki/Matrix_splitting
+//https://stackoverflow.com/questions/3318333/split-a-vector-into-chunks
+//https://stackoverflow.com/questions/9811235/best-way-to-split-a-vector-into-two-smaller-arrays
+//https://www.w3schools.com/cpp/cpp_break.asp
+//https://stackoverflow.com/questions/315306/is-if-expensive
+//https://www.reddit.com/r/computerscience/comments/ph8cmg/does_the_number_of_checks_in_an_if_statement/

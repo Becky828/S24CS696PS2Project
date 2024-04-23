@@ -1,0 +1,56 @@
+Please note:
+
+As of 04/04/2024 it is currently unclear how to achieve and MAE of less than 0.90 with
+stochastic gradient descent while changing only n_iterations, lambda, and eta.
+
+n_iterations = m.
+
+MAE errors
+
+There appears to be a hard breaking point when eta = eta * 90000 
+and lambda = lambda * 90000. This results in each run having MAE = nan.
+
+The same is the case for when eta = eta * 90000 
+and lambda = lambda * 9000. 
+
+However, eta = eta * 9000 and lambda = lambda * 90000 runs on occasion.
+It results in and MAE that is typically under 0.95. The MAE approximately 0.05 to 0.07 
+less than the random guess MAE. The highest seen difference has been 0.08339 and resulted in an MAE of 0.91781. 
+
+A MAE = nan occurs if the nan of the previous iteration was excessively high.
+For instance,
+
+MAE Random Guess: 1.00464
+
+iteration			MAE
+0				1.32438
+1				1.01012
+2				1.03441
+3				1.41965
+4				1.07929
+5				3.2891
+6				1.17103
+7				23.9829	
+8				1.79033e+269
+9				nan
+.				.
+.				.
+.				.
+1999				nan
+
+
+Or
+
+
+MAE Random Guess: 1.01162
+
+iteration			MAE
+0				1.66117
+1				1.38799
+2				17.0954
+3				1499.77
+4				nan
+.				.
+.				.
+.				.
+1999				nan
