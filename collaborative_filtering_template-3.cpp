@@ -514,9 +514,9 @@ int main() {
 			// read user, book, and rating
 			//std::getline(iss, token, ';');
 			std::getline(iss, token , ';');
-			long int user = std::stoull(token);
+			unsigned long long int user = std::stoull(token);
 			std::getline(iss, token, ';');
-			long int book = std::stol(token);
+			unsigned long long int book = std::stol(token);
 			std::getline(iss, token, ';');
 			double rating = std::stod(token);
 
