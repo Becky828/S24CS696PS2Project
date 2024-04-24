@@ -51,8 +51,8 @@ void mae_finder(std::map<std::pair<long int, long long int>, double> test_set, s
 	double mae_random = 0; // mean absolute error if we were to guess 3 for every rating
 
 	for (auto& x : test_set) {
-		int i = x.first.first;
-		int j = x.first.second;
+		long int i = x.first.first;
+		long long int j = x.first.second;
 		double r = x.second;
 		double prediction = dot_product(U[i], V[j]);
 		if (prediction > 5) {
@@ -105,14 +105,14 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long lon
 		auto random_key = it->first;
 
 		//stores the randomly selected user
-		unsigned long long int i = random_key.first;
+		long int i = random_key.first;
 		//int current_user = i;
 
 		//stores the randomly selected movie
-		unsigned long long int j = random_key.second;
+		long long int j = random_key.second;
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U.
-		for (unsigned long long int a : users) {
+		for (long int a : users) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[a], V[j]) - it->second;
@@ -127,7 +127,7 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long lon
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (unsigned long long int b : books) {
+		for (long long int b : books) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[i], V[b]) - it->second;
@@ -154,8 +154,8 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long lon
 //Collaborative Filtering Batch Gradient Descent
 
 //function which performs collaborative filtering batch gradient descent
-void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsigned long long int, unsigned long long int>, double> test_set, double eta, double lambda, double decay, std::set<unsigned long long int> users, std::set<unsigned long long int> books, std::map<std::pair<unsigned long long int, unsigned long long int>,
-	double> ratings, double U_dot_V_transposed, std::map<unsigned long long int, std::set<unsigned long long int>> users_books, std::map<unsigned long long int, std::set<unsigned long long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<long int, long long int>, double> test_set, double eta, double lambda, double decay, std::set<long int> users, std::set<long long int> books, std::map<std::pair<long int, long long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long long int>> users_books, std::map<long long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 	//The following code is based on the collaborative filtering batch gradient descent algorithm as inferred from slide 35 of the recommendation systems notes
 
@@ -175,7 +175,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsig
 
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U
-		for (unsigned long long int i : users) {
+		for (long int i : users) {
 
 			//initializes found as true
 			bool found = true;
@@ -199,7 +199,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsig
 			if (found) {
 
 				//iterates through all movies in the user's movie set by an increment of 1
-				for (unsigned long long int j : users_books.at(i)) {
+				for (long long int j : users_books.at(i)) {
 					double ratings_difference = dot_product(U[i], V[j]) - ratings.at(std::make_pair(i, j));
 					for (int k = 0; k < K; k++) {
 
@@ -234,7 +234,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsig
 		}*/
 		
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (unsigned long long int j : books) {
+		for (long long int j : books) {
 
 			//initializes the full gradient for U. This ensures that the full gradient for V is set to 0 for each user. The full gradient for V is composed of the base gradient for V and the partial derivative 
 			// of the regularization term in respect to V			
@@ -259,7 +259,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsig
 
 				//	if (movies_users.at(j).size() <= ceil(max_users_in_any_movie_set/1024)) {
 						//iterates through all users in the movie's user set by an increment of 1
-				for (unsigned long long int i : books_users.at(j)) {
+				for (long int i : books_users.at(j)) {
 					//++movies_with_at_most_one_eighth_max_numbers_of_users_in_any_movie_set;
 					double ratings_difference = dot_product(U[i], V[j]) - ratings.at(std::make_pair(i, j));
 					for (int k = 0; k < K; k++) {
@@ -302,8 +302,8 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<unsig
 //Collaborative Filtering Mini-Batch Gradient Descent
 
 //function which performs collborative filtering  mini-batch gradient descent
-void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<unsigned long long int, unsigned long long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<unsigned long long int> users, std::set<unsigned long long int>  books, std::map<std::pair<unsigned long long int, unsigned long long int>,
-	double> ratings, double U_dot_V_transposed, std::map<unsigned long long int, std::set<unsigned long long int>> users_books, std::map<unsigned long long int, std::set<unsigned long long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<long int, long long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<long long int>  books, std::map<std::pair<long int, long long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long long int>> users_books, std::map<long long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -337,7 +337,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<un
 		}
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U
-		for (unsigned long long int a : users) {
+		for (long int a : users) {
 
 			//initializes the full gradient for U. This ensures that the full gradient for U is set to 0 for each user. The full gradient for U is composed of the base gradient for U and the partial derivative 
 			// of the regularization term in respect to U
@@ -379,7 +379,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<un
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (unsigned long long int a : books) {
+		for (long long int a : books) {
 
 			//initializes the full gradient for V. This ensures that the full gradient for V is set to 0 for each user. The full gradient for V is composed of the base gradient for V and the partial derivative 
 			// of the regularization term in respect to V
@@ -461,7 +461,7 @@ int main() {
 
 
 	//initializes the movies
-	std::set<unsigned long long int> books;
+	std::set<long long int> books;
 
 	//Full Dataset
 	int K = 15; // number of latent dimensions	
