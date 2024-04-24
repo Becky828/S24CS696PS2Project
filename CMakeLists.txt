@@ -28,21 +28,21 @@ include(CTest)
 include(UpdateSubmodules.cmake)
 
 # Add subdirectories with code
-add_subdirectory(tests)
-add_subdirectory(external)
+#add_subdirectory(tests)
+#add_subdirectory(external)
 
 #Copying required files and folders
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ratings.csv
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/BX-Book-Ratings.csv
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/very_abridged_Dataset.csv
-     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/very_abridged_Dataset.csv
+     #DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ReadMe.txt
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/move-ratings/Dataset.csv
-     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/move-ratings/Dataset.csv
+     #DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/move-ratings/Movie_Id_Titles.csv
-     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/move-ratings/Movie_Id_Titles.csv
+     #DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
