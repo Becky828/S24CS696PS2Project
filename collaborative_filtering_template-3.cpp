@@ -44,7 +44,7 @@ double dot_product(std::vector<double>& v1, std::vector<double>& v2) {
 
 //function used to find the mean absolute error
 //inner workings provided by Dr. Vu
-void mae_finder(std::map<std::pair<int, int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
+void mae_finder(std::map<std::pair<int, long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
 {
 	// calculate the mean absolute error
 	double mae = 0;
@@ -76,12 +76,12 @@ void mae_finder(std::map<std::pair<int, int>, double> test_set, std::vector<std:
 //Custom Functions
 
 
+
 //Collaborative Filtering Stochastic Gradient Descent
 
-
 //function which performs collaborative filtering stochastic gradient descent
-void cf_stochastic_gradient_descent_finder(std::map<std::pair<int, int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<int> users, std::set<int>  books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long int>, double> test_set, long int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<long int>  books, std::map<std::pair<long int, long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long int>> users_books, std::map<long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -436,29 +436,31 @@ int main() {
 	//for quick debugging
 	//std::ifstream file("very_abridged_Dataset.csv");
 
-	//for first part of p2
-	std::ifstream file("BX-Book-Ratings");
-	
+	//for reading the file that conains the dataset
+	std::ifstream file("BX-Book-Ratings.csv");
+
 	std::string line;
 
 	//initializes the ratings
-	std::map<std::pair<int, int>, double> ratings;
+	std::map<std::pair<long int, long int>, double> ratings;
 
 	//initializes the test set
-	std::map<std::pair<int, int>, double> test_set;
+	std::map<std::pair<long int, long int>, double> test_set;
 
 	//initializes the users_movies
-	std::map<int, std::set<int>> users_books;
+	std::map<int, std::set<long int>> users_books;
 
 	//initializes the movies_users
-	std::map<int, std::set<int>> books_users;
+	std::map<int, std::set<long int>> books_users;
 
 
 	//initializes the users
-	std::set<int> users;
+	//std::set<int> users;
+	std::set<long int> users;
+
 
 	//initializes the movies
-	std::set<int> books;
+	std::set<long int> books;
 
 	//Full Dataset
 	int K = 15; // number of latent dimensions	
@@ -494,7 +496,6 @@ int main() {
 	int n_iterations_copy = n_iterations;
 	int n_iterations_double = 2 * n_iterations;
 	double U_dot_V_transposed = 0;
-	double V_dot_U = 0;
 
 	//int epochs = 4;
 
@@ -511,9 +512,9 @@ int main() {
 			std::string token;
 			// read user, book, and rating
 			std::getline(iss, token, ',');
-			int user = std::stol(token);
+			long int user = std::stol(token);
 			std::getline(iss, token, ',');
-			int book = std::stol(token);
+			long int book = std::stol(token);
 			std::getline(iss, token, ',');
 			double rating = std::stod(token);
 
