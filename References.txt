@@ -123,3 +123,4 @@
 //https://stackoverflow.com/questions/40633898/remove-surrounded-quotes-in-vscode-or-toggle-between-quote-and-no-quote
 //https://www.geeksforgeeks.org/how-to-iterate-through-a-vector-without-using-iterators-in-c/
 //https://www.geeksforgeeks.org/vectoroperator-vectoroperator-c-stl/
+//https://stackoverflow.com/questions/18971732/what-is-the-difference-between-long-long-long-long-int-and-long-long-i
