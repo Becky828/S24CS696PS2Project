@@ -44,7 +44,7 @@ double dot_product(std::vector<double>& v1, std::vector<double>& v2) {
 
 //function used to find the mean absolute error
 //inner workings provided by Dr. Vu
-void mae_finder(std::map<std::pair<int, long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
+void mae_finder(std::map<std::pair<long int, long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
 {
 	// calculate the mean absolute error
 	double mae = 0;
@@ -105,14 +105,14 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long int
 		auto random_key = it->first;
 
 		//stores the randomly selected user
-		int i = random_key.first;
+		long int i = random_key.first;
 		//int current_user = i;
 
 		//stores the randomly selected movie
-		int j = random_key.second;
+		long int j = random_key.second;
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U.
-		for (int a : users) {
+		for (long int a : users) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[a], V[j]) - it->second;
@@ -127,7 +127,7 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long int
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (int b : books) {
+		for (long int b : books) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[i], V[b]) - it->second;
@@ -154,8 +154,8 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long int
 //Collaborative Filtering Batch Gradient Descent
 
 //function which performs collaborative filtering batch gradient descent
-void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, int>, double> test_set, double eta, double lambda, double decay, std::set<int> users, std::set<int> books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<long int, long int>, double> test_set, double eta, double lambda, double decay, std::set<long int> users, std::set<long int> books, std::map<std::pair<long int, long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long int>> users_books, std::map<long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 	//The following code is based on the collaborative filtering batch gradient descent algorithm as inferred from slide 35 of the recommendation systems notes
 
@@ -175,7 +175,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U
-		for (int i : users) {
+		for (long int i : users) {
 
 			//initializes found as true
 			bool found = true;
@@ -199,7 +199,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 			if (found) {
 
 				//iterates through all movies in the user's movie set by an increment of 1
-				for (int j : users_books.at(i)) {
+				for (long int j : users_books.at(i)) {
 					double ratings_difference = dot_product(U[i], V[j]) - ratings.at(std::make_pair(i, j));
 					for (int k = 0; k < K; k++) {
 
@@ -223,17 +223,18 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 			}
 		}
 
-		int movies_with_at_most_one_eighth_max_numbers_of_users_in_any_movie_set = 0;
+	/*	int movies_with_at_most_one_eighth_max_numbers_of_users_in_any_movie_set = 0;
 		int max_users_in_any_movie_set = 0;
 		int average_number_of_computed_movie_sets = 0;
 
-		for (int j : books) {
+		for (long int j : books) {
 			if (max_users_in_any_movie_set < books_users[j].size()) {
 				max_users_in_any_movie_set = books_users[j].size();
 			}
-		}
+		}*/
+		
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (int j : books) {
+		for (long int j : books) {
 
 			//initializes the full gradient for U. This ensures that the full gradient for V is set to 0 for each user. The full gradient for V is composed of the base gradient for V and the partial derivative 
 			// of the regularization term in respect to V			
@@ -258,7 +259,7 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 
 				//	if (movies_users.at(j).size() <= ceil(max_users_in_any_movie_set/1024)) {
 						//iterates through all users in the movie's user set by an increment of 1
-				for (int i : books_users.at(j)) {
+				for (long int i : books_users.at(j)) {
 					//++movies_with_at_most_one_eighth_max_numbers_of_users_in_any_movie_set;
 					double ratings_difference = dot_product(U[i], V[j]) - ratings.at(std::make_pair(i, j));
 					for (int k = 0; k < K; k++) {
@@ -301,8 +302,8 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 //Collaborative Filtering Mini-Batch Gradient Descent
 
 //function which performs collborative filtering  mini-batch gradient descent
-void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<int, int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<int> users, std::set<int>  books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<long int, long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<long int>  books, std::map<std::pair<long int, long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long int>> users_books, std::map<long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -336,7 +337,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 		}
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U
-		for (int a : users) {
+		for (long int a : users) {
 
 			//initializes the full gradient for U. This ensures that the full gradient for U is set to 0 for each user. The full gradient for U is composed of the base gradient for U and the partial derivative 
 			// of the regularization term in respect to U
@@ -349,8 +350,8 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 			for (auto it : ratings_batch) {
 
 				//stores i and j
-				int i = it.first.first;
-				int j = it.first.second;
+				long int i = it.first.first;
+				long int j = it.first.second;
 
 				//finds the current rating difference by subtracting the current rating from the dot product of U and V transposed
 				double rating_difference = dot_product(U[a], V[j]) - it.second;
@@ -378,7 +379,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (int a : books) {
+		for (long int a : books) {
 
 			//initializes the full gradient for V. This ensures that the full gradient for V is set to 0 for each user. The full gradient for V is composed of the base gradient for V and the partial derivative 
 			// of the regularization term in respect to V
@@ -448,10 +449,10 @@ int main() {
 	std::map<std::pair<long int, long int>, double> test_set;
 
 	//initializes the users_movies
-	std::map<int, std::set<long int>> users_books;
+	std::map<long int, std::set<long int>> users_books;
 
 	//initializes the movies_users
-	std::map<int, std::set<long int>> books_users;
+	std::map<long int, std::set<long int>> books_users;
 
 
 	//initializes the users
