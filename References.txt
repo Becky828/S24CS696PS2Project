@@ -124,3 +124,8 @@
 //https://www.geeksforgeeks.org/how-to-iterate-through-a-vector-without-using-iterators-in-c/
 //https://www.geeksforgeeks.org/vectoroperator-vectoroperator-c-stl/
 //https://stackoverflow.com/questions/18971732/what-is-the-difference-between-long-long-long-long-int-and-long-long-i
+//https://cplusplus.com/reference/string/stoul/
+//https://www.tutorialspoint.com/cplusplus/cpp_data_types.htm
+//https://stackoverflow.com/questions/18971732/what-is-the-difference-between-long-long-long-long-int-and-long-long-i
+//https://www.geeksforgeeks.org/vectoroperator-vectoroperator-c-stl/
+//https://stackoverflow.com/questions/12338818/how-can-i-get-double-quotes-into-a-string-literal

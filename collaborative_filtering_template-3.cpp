@@ -44,15 +44,15 @@ double dot_product(std::vector<double>& v1, std::vector<double>& v2) {
 
 //function used to find the mean absolute error
 //inner workings provided by Dr. Vu
-void mae_finder(std::map<std::pair<int, int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
+void mae_finder(std::map<std::pair<long int, unsigned long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
 {
 	// calculate the mean absolute error
 	double mae = 0;
 	double mae_random = 0; // mean absolute error if we were to guess 3 for every rating
 
 	for (auto& x : test_set) {
-		int i = x.first.first;
-		int j = x.first.second;
+		long int i = x.first.first;
+		unsigned long int j = x.first.second;
 		double r = x.second;
 		double prediction = dot_product(U[i], V[j]);
 		if (prediction > 5) {
@@ -80,8 +80,8 @@ void mae_finder(std::map<std::pair<int, int>, double> test_set, std::vector<std:
 
 
 //function which performs collaborative filtering stochastic gradient descent
-void cf_stochastic_gradient_descent_finder(std::map<std::pair<int, int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<int> users, std::set<int>  books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, unsigned long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<unsigned long int>  books, std::map<std::pair<long int, unsigned long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<unsigned long int>> users_books, std::map<unsigned long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -112,7 +112,7 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<int, int>, double>
 		int j = random_key.second;
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U.
-		for (int a : users) {
+		for (long int a : users) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[a], V[j]) - it->second;
@@ -127,7 +127,7 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<int, int>, double>
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (int b : books) {
+		for (unsigned long int b : books) {
 
 			//finds the rating difference by subtracting the current rating from the dot product of U and V transposed
 			double rating_difference = dot_product(U[i], V[b]) - it->second;
@@ -154,8 +154,8 @@ void cf_stochastic_gradient_descent_finder(std::map<std::pair<int, int>, double>
 //Collaborative Filtering Batch Gradient Descent
 
 //function which performs collaborative filtering batch gradient descent
-void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, int>, double> test_set, double eta, double lambda, double decay, std::set<int> users, std::set<int> books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<long int, unsigned long int>, double> test_set, double eta, double lambda, double decay, std::set<long int> users, std::set<unsigned long int> books, std::map<std::pair<long int, unsigned long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<unsigned long int>> users_books, std::map<unsigned long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 	//The following code is based on the collaborative filtering batch gradient descent algorithm as inferred from slide 35 of the recommendation systems notes
 
@@ -301,8 +301,8 @@ void cf_batch_gradient_descent_finder(int n_iterations, std::map<std::pair<int, 
 //Collaborative Filtering Mini-Batch Gradient Descent
 
 //function which performs collborative filtering  mini-batch gradient descent
-void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<int, int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<int> users, std::set<int>  books, std::map<std::pair<int, int>,
-	double> ratings, double U_dot_V_transposed, std::map<int, std::set<int>> users_books, std::map<int, std::set<int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<long int, unsigned long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<unsigned long int>  books, std::map<std::pair<long int, unsigned long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<unsigned long int>> users_books, std::map<unsigned long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -336,7 +336,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 		}
 
 		//iterates through the set of users by an increment of 1. This provides the index required for iterating through the rows of U
-		for (int a : users) {
+		for (long int a : users) {
 
 			//initializes the full gradient for U. This ensures that the full gradient for U is set to 0 for each user. The full gradient for U is composed of the base gradient for U and the partial derivative 
 			// of the regularization term in respect to U
@@ -349,8 +349,8 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 			for (auto it : ratings_batch) {
 
 				//stores i and j
-				int i = it.first.first;
-				int j = it.first.second;
+				long int i = it.first.first;
+				unsigned long int j = it.first.second;
 
 				//finds the current rating difference by subtracting the current rating from the dot product of U and V transposed
 				double rating_difference = dot_product(U[a], V[j]) - it.second;
@@ -378,7 +378,7 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 		}
 
 		//iterates through the set of movies by an increment of 1. This provides the index required for iterating through the rows of V.
-		for (int a : books) {
+		for (unsigned long int a : books) {
 
 			//initializes the full gradient for V. This ensures that the full gradient for V is set to 0 for each user. The full gradient for V is composed of the base gradient for V and the partial derivative 
 			// of the regularization term in respect to V
@@ -391,8 +391,8 @@ void cf_mini_batch_gradient_descent_finder(int batch_size, std::map<std::pair<in
 			for (auto it : ratings_batch) {
 
 				//stores i and j
-				int i = it.first.first;
-				int j = it.first.second;
+				long int i = it.first.first;
+				unsigned long int j = it.first.second;
 
 				//finds the current rating difference
 				double rating_difference = dot_product(U[i], V[a]) - it.second;
@@ -442,23 +442,22 @@ int main() {
 	std::string line;
 
 	//initializes the ratings
-	std::map<std::pair<int, int>, double> ratings;
+	std::map<std::pair<long int, unsigned long int>, double> ratings;
 
 	//initializes the test set
-	std::map<std::pair<int, int>, double> test_set;
+	std::map<std::pair<long int, unsigned long int>, double> test_set;
 
 	//initializes the users_movies
-	std::map<int, std::set<int>> users_books;
+	std::map<long int, std::set<unsigned long int>> users_books;
 
 	//initializes the movies_users
-	std::map<int, std::set<int>> books_users;
-
+	std::map<unsigned long int, std::set<long int>> books_users;
 
 	//initializes the users
-	std::set<int> users;
+	std::set<long int> users;
 
 	//initializes the movies
-	std::set<int> books;
+	std::set<unsigned long int> books;
 
 	//Full Dataset
 	int K = 15; // number of latent dimensions	
@@ -511,9 +510,9 @@ int main() {
 			std::string token;
 			// read user, book, and rating
 			std::getline(iss, token, ',');
-			int user = std::stol(token);
+			unsigned long int user = std::stoul(token);
 			std::getline(iss, token, ',');
-			int book = std::stol(token);
+			unsigned long int book = std::stoul(token);
 			std::getline(iss, token, ',');
 			double rating = std::stod(token);
 
