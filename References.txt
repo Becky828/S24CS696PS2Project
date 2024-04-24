@@ -121,3 +121,5 @@
 //https://www.tutorialspoint.com/cplusplus/cpp_data_types.htm
 //https://stackoverflow.com/questions/12338818/how-can-i-get-double-quotes-into-a-string-literal
 //https://stackoverflow.com/questions/40633898/remove-surrounded-quotes-in-vscode-or-toggle-between-quote-and-no-quote
+//https://www.geeksforgeeks.org/how-to-iterate-through-a-vector-without-using-iterators-in-c/
+//https://www.geeksforgeeks.org/vectoroperator-vectoroperator-c-stl/

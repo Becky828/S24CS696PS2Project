@@ -44,7 +44,7 @@ double dot_product(std::vector<double>& v1, std::vector<double>& v2) {
 
 //function used to find the mean absolute error
 //inner workings provided by Dr. Vu
-void mae_finder(std::map<std::pair<unsigned long long int, unsigned long long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
+void mae_finder(std::map<std::pair<long int, long long int>, double> test_set, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V)
 {
 	// calculate the mean absolute error
 	double mae = 0;
@@ -80,8 +80,8 @@ void mae_finder(std::map<std::pair<unsigned long long int, unsigned long long in
 //Collaborative Filtering Stochastic Gradient Descent
 
 //function which performs collaborative filtering stochastic gradient descent
-void cf_stochastic_gradient_descent_finder(std::map<std::pair<unsigned long long int, unsigned long long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<unsigned long long int> users, std::set<unsigned long long int>  books, std::map<std::pair<unsigned long long int, unsigned long long int>,
-	double> ratings, double U_dot_V_transposed, std::map<unsigned long long int, std::set<unsigned long long int>> users_books, std::map<unsigned long long int, std::set<unsigned long long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
+void cf_stochastic_gradient_descent_finder(std::map<std::pair<long int, long long int>, double> test_set, int n_iterations, double eta, double lambda, double decay, std::set<long int> users, std::set<long long int>  books, std::map<std::pair<long int, long long int>,
+	double> ratings, double U_dot_V_transposed, std::map<long int, std::set<long long int>> users_books, std::map<long long int, std::set<long int>> books_users, int m, int n, int K, std::vector<std::vector<double>> U, std::vector<std::vector<double>> V) {
 
 
 	//The following code is based on the collaborative filtering mini-batch gradient descent algorithm as inferred from slide 35 and 38 of the recommendation systems notes
@@ -438,26 +438,26 @@ int main() {
 	//std::ifstream file("very_abridged_Dataset.csv");
 
 	//for reading the file that conains the dataset
-	std::ifstream file("BX-Book-Ratings.csv");
+	std::ifstream file("BX-Book-Ratings_no_double_quotes.csv");
 
 	std::string line;
 
 	//initializes the ratings
-	std::map<std::pair<unsigned long long int, unsigned long long int>, double> ratings;
+	std::map<std::pair<long int, long long int>, double> ratings;
 
 	//initializes the test set
-	std::map<std::pair<unsigned long long int, unsigned long long int>, double> test_set;
+	std::map<std::pair<long int, long long int>, double> test_set;
 
 	//initializes the users_movies
-	std::map<unsigned long long int, std::set<unsigned long long int>> users_books;
+	std::map<long int, std::set<long long int>> users_books;
 
 	//initializes the movies_users
-	std::map<unsigned long long int, std::set<unsigned long long int>> books_users;
+	std::map<long long int, std::set<long int>> books_users;
 
 
 	//initializes the users
 	//std::set<int> users;
-	std::set<unsigned long long int> users;
+	std::set<long int> users;
 
 
 	//initializes the movies
@@ -514,9 +514,15 @@ int main() {
 			// read user, book, and rating
 			//std::getline(iss, token, ';');
 			std::getline(iss, token , ';');
-			unsigned long long int user = std::stoull(token);
+			long int user = std::stol(token);
 			std::getline(iss, token, ';');
-			unsigned long long int book = std::stol(token);
+			
+			//Needed to avoid out of range error when using sdt::stol
+			//May cause some ISBNS to be ignored
+			if (token.at(token.size() - 1) == 'X') {
+				token.at(token.size() - 1) = '0';
+			}
+			long int book = std::stol(token);
 			std::getline(iss, token, ';');
 			double rating = std::stod(token);
 
