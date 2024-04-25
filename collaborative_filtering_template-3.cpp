@@ -437,7 +437,7 @@ int main() {
 	//std::ifstream file("very_abridged_Dataset.csv");
 
 	//for first part of p2
-	std::ifstream file("BX-Book-Ratings");
+	std::ifstream file("BX-Book-Ratings_no_double_quotes_and_no_dots.csv");
 
 	std::string line;
 
@@ -452,6 +452,8 @@ int main() {
 
 	//initializes the movies_users
 	std::map<unsigned long int, std::set<long int>> books_users;
+
+	std::map<string, int> books_coded;
 
 	//initializes the users
 	std::set<long int> users;
@@ -505,35 +507,47 @@ int main() {
 		std::getline(file, line); // skip the first line
 
 		while (std::getline(file, line)) {
-
+			bool in_range = true;
 			std::istringstream iss(line);
 			std::string token;
-			// read user, book, and rating
-			std::getline(iss, token, ',');
-			unsigned long int user = std::stoul(token);
-			std::getline(iss, token, ',');
-			unsigned long int book = std::stoul(token);
-			std::getline(iss, token, ',');
-			double rating = std::stod(token);
 
-			if (toss_coin(1 - test_set_size)) {
-				// if the coin toss is true, add the rating to the training set
-				ratings[std::make_pair(user, book)] = rating;
-				//double current_rating_a = ratings[std::make_pair(user, movie)];
-				users_books[user].insert(book); // add movie to user's list of movies
-				books_users[book].insert(user); // add user to movie's list of users
+			// read book, user, and rating
+			std::getline(iss, token, ';');
+
+			try {
+				unsigned long int book = std::stoul(token);
 			}
-			else {
-				// if the coin toss is false, add the rating to the test set
-				test_set[std::make_pair(user, book)] = rating;
+			catch (const std::invalid_argument& e) {
+				in_range = false;
 			}
 
-			// keep track of users and movies that have been added
-			// the Ids might be larger than the number of users and movies
-			users.insert(user);
-			books.insert(book);
+			if (in_range) {
+
+				std::getline(iss, token, ';');
+				long int user = std::stoul(token);
+				std::getline(iss, token, ';');
+				unsigned long int book = std::stoul(token);
+				std::getline(iss, token, ';');
+				double rating = std::stod(token);
+
+				if (toss_coin(1 - test_set_size)) {
+					// if the coin toss is true, add the rating to the training set
+					ratings[std::make_pair(user, book)] = rating;
+					//double current_rating_a = ratings[std::make_pair(user, movie)];
+					users_books[user].insert(book); // add movie to user's list of movies
+					books_users[book].insert(user); // add user to movie's list of users
+				}
+				else {
+					// if the coin toss is false, add the rating to the test set
+					test_set[std::make_pair(user, book)] = rating;
+				}
+
+				// keep track of users and movies that have been added
+				// the Ids might be larger than the number of users and movies
+				users.insert(user);
+				books.insert(book);
+			}
 		}
-
 		file.close();
 	}
 	else {
