@@ -32,7 +32,7 @@ include(UpdateSubmodules.cmake)
 #add_subdirectory(external)
 
 #Copying required files and folders
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/BX-Book-Ratings_no_double_quotes_and_no_dots.csv
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/BX-Book-Ratings_no_double_quotes.csv
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 

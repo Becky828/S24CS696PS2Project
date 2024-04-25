@@ -437,7 +437,7 @@ int main() {
 	//std::ifstream file("very_abridged_Dataset.csv");
 
 	//for first part of p2
-	std::ifstream file("BX-Book-Ratings");
+	std::ifstream file("BX-Book-Ratings_no_double_quotes.csv");
 
 	std::string line;
 
@@ -457,9 +457,22 @@ int main() {
 	//initializes the users
 	std::set<int> users;
 
+	//initializes the coded_users to store the users
+	std::map<string, int> coded_users;
+
+	//initializes the user count
+	int user_count = -1;
+
 	//initializes the movies
 	std::set<int> books;
 
+	//initializes the coded_isbns to store the ISBNs
+	std::map<string, int> coded_isbns;
+
+	//initializes the book count
+	int book_count = -1;
+	 
+	
 	//Full Dataset
 	int K = 15; // number of latent dimensions	
 	int m = 2000; // upper bound for number of users	
@@ -510,11 +523,47 @@ int main() {
 			std::istringstream iss(line);
 			std::string token;
 			// read user, book, and rating
-			std::getline(iss, token, ',');
-			int user = std::stol(token);
-			std::getline(iss, token, ',');
-			int book = std::stol(token);
-			std::getline(iss, token, ',');
+			std::getline(iss, token, ';');
+			int user = 0;
+
+			//if the user is not in the coded_users, add the user to the coded_users
+			if (coded_users.find(token) == coded_users.end())
+			{
+				user_count++;
+				coded_users[token] = user_count;
+
+				//if the user is not in the users, add the user to the users
+				user = user_count;
+			}
+
+			//if the user is in the coded_users, set the user to the user in the coded_users
+			else {
+				user = coded_users[token];
+			}
+			
+			//int user = std::stol(token);			
+			
+			std::getline(iss, token, ';');
+
+			int book = 0;
+
+			//if the book is not in the coded_isbns, add the book to the coded_isbns
+			if (coded_isbns.find(token) == coded_isbns.end())
+			{
+				book_count++;
+				coded_isbns[token] = book_count;
+
+				//if the book is not in the books, add the book to the books
+				book = book_count;
+			}
+			//if the book is in the coded_isbns, set the book to the book in the coded_isbns
+			else {
+				book = coded_isbns[token];
+			}
+
+			//int book = std::stol(token);
+
+			std::getline(iss, token, ';');
 			double rating = std::stod(token);
 
 			if (toss_coin(1 - test_set_size)) {
